@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './Produto.module.css';
-import Head from './Head'
+import Head from './Head';
 
 const Produto = () => {
   const [produto, setProduto] = React.useState(null);
@@ -31,10 +31,15 @@ const Produto = () => {
 
   return (
     <section className={styles.produto + ' animeLeft'}>
-      <Head title={`Ranek | ${produto.nome}`} description={`Ranek | Esse é um produto: ${produto.nome}`}/>
-      {produto.fotos.map((foto) => (
-        <img key={foto.src} src={foto.src} alt={foto.titulo} />
-      ))}
+      <Head
+        title={`Ranek | ${produto.nome}`}
+        description={`Ranek | Esse é um produto: ${produto.nome}`}
+      />
+      <div>
+        {produto.fotos.map((foto) => (
+          <img key={foto.src} src={foto.src} alt={foto.titulo} />
+        ))}
+      </div>
       <div>
         <h1>{produto.nome}</h1>
         <span className={styles.preco}>R$ {produto.preco}</span>
